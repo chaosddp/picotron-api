@@ -1,0 +1,39 @@
+
+--- Play sfx n (0..63) on channel (0..15) from note offset (0..63 in notes) for length notes. 
+--- When n is a negative number, a special sfx channel command is issued (see below).
+--- @param n number The sfx index to play (0..63).
+--- @param channel? number The channel to play on (0..15). Giving nil or -1 as the channel index automatically chooses a channel that is not being used.
+--- @param offset? number The note offset to start playing from (0..63). Negative offsets can be used to delay before playing.
+--- @param length? number The number of notes to play (0..63). When the sfx is looping, length still means the number of (posisbly repeated) notes to play.
+--- @param mix_volume? number The volume to mix with the current channel volume. When mix_volume is given, the channel is mixed at that value (0x40 means 1.0). Otherwise the value at 0x553a is used (0x40 by default). In addition to the per-channel mix volume, all channels are subject to a per-process global volume specified at 0x5538 (default: 0x40 == 1.0).
+function sfx(n, channel, offset, length, mix_volume) end
+
+--- Play music starting from pattern n.
+--- @param n number The music index to play (0..15). -1 to stop music
+--- @param fade_len? number fade_len is in ms (default: 0). so to fade pattern 0 in over 1 second: music(0, 1000)
+--- @param channel_mask? number channel_mask is bitfield that specifies which channels to reserve for music only, low bits first. For example, to play only on the first three channels 0..2, the lowest three bits should be set: music(0, nil, 0x7) -- bits: 0x1 | 0x2 | 0x4
+--- @param base_addr? number When base_addr is given, the channels used to play music are assigned that location in memory to read data from. This can be used to load multiple .sfx files into memory and play them at the same time.
+--- @param tick_offset? number tick_offset is an optional offset to start playing from. This is given in ticks rather than rows, because it supports patterns with tricks that play back at different speeds. To start from row 2 of a track that has spd 16, use: music(0, nil, nil, nil, 2 * 16)
+function music(n, fade_len, channel_mask, base_addr, tick_offset) end
+
+--- This provides low level control over the state of a channel. It is useful in more niche situations, like audio authoring tools and size-coding.
+---
+--- Internally this is what is used to play each row of a sfx when one is active. Use 0xff to indicate an attribute should not be altered.
+---
+--- @param pitch? number channel pitch (default 48 -- middle C)
+--- @param inst? number instrument index (default 0)
+--- @param vol? number channel volume (default 64)
+--- @param effect? number channel effect (default 0)
+--- @param effect_p? number effect parameter (default 0)
+--- @param channel? number channel index (0..15 -- default 0)
+--- @param retrig? boolean (boolean) force retrigger -- default to false
+--- @param panning? number set channel panning (-128..127)
+--- @overload fun(pitch, inst, vol, effect, effect_p, channel, retrig)
+--- @overload fun(pitch, inst, vol, effect, effect_p, channel)
+--- @overload fun(pitch, inst, vol, effect, effect_p)
+--- @overload fun(pitch, inst, vol, effect)
+--- @overload fun(pitch, inst, vol)
+--- @overload fun(pitch, inst)
+--- @overload fun(pitch)
+--- @overload fun()
+function note(pitch, inst, vol, effect, effect_p, channel, retrig, panning) end
