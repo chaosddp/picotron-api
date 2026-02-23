@@ -1,17 +1,17 @@
 ---@diagnostic disable: missing-return
 
 --[[
-Each process in Picotron has a single window, and a single display that always matches the size of the window. The display is a u8 userdata that can be manipulated using the regular userdata methods, or using the gfx api while the display is also the draw target.
+Each process in Picotron has a single window, and a single display that always matches the size of the window. The display is a u8 Userdata that can be manipulated using the regular userdata methods, or using the gfx api while the display is also the draw target.
 
 When a program has a _draw function but a window does not exist by the end of _init(), a fullscreen display and workspace is created automatically. To explicitly create a fullscreen display before then, window() with no parameters can be used.
 ]]
 
---- Returns the current display as a u8, 2d userdata. There is no way to set the display userdata directly; it can be resized using the window() function.
---- @return userdata @must be a u8, 2d userdata
+--- Returns the current display as a u8, 2d Userdata. There is no way to set the display Userdata directly; it can be resized using the window() function.
+--- @return Userdata @must be a u8, 2d Userdata
 function get_display() end
 
---- Set the draw target to ud, which must be a u8, 2d userdata. When ud is not given, set_draw_target() defaults to the current display.
---- @param ud userdata must be a u8, 2d userdata
+--- Set the draw target to ud, which must be a u8, 2d Userdata. When ud is not given, set_draw_target() defaults to the current display.
+--- @param ud Userdata must be a u8, 2d Userdata
 function set_draw_target(ud) end
 
 --- @class WindowAttribs
@@ -26,7 +26,7 @@ function set_draw_target(ud) end
 --- @field wallpaper? boolean   --  act as a wallpaper (z defaults to -1000 in that case)
 --- @field autoclose? boolean   --  close window when is no longer in focus or when press escape
 --- @field z? number           --  windows with higher z are drawn on top. Defaults to 0
---- @field cursor? number      --  0 for no cursor, 1 for default, or a userdata for a custom cursor
+--- @field cursor? number | Userdata      --  0 for no cursor, 1 for default, or a Userdata for a custom cursor
 --- @field squashable? boolean  --  window resizes itself to stay within the desktop region
 --- @field observe_drag_offset? boolean -- indicates that when items are dropped, their .xo,.yo is used
 --- @field background_updates? boolean  -- allow _update() callbacks when parent window is not visible

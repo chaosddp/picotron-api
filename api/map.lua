@@ -1,6 +1,6 @@
 ---@diagnostic disable: missing-return
 
---- Draw section of a map (starting from tile_x, tile_y) at screen position sx, sy (pixels), from the userdata src, or from the current working map when src is not given. 
+--- Draw section of a map (starting from tile_x, tile_y) at screen position sx, sy (pixels), from the Userdata src, or from the current working map when src is not given. 
 --- Note that the src parameter can be omitted entirely to give a PICO-8 compatible form.
 ---
 --- To draw a 4x2 blocks of tiles starting from 0,0 in the map, to the screen at 20,20: map(0, 0, 20, 20, 4, 2)
@@ -11,7 +11,7 @@
 --- camera(pl.x - 240, pl.y - 135)
 --- map()
 ---
---- @param src? userdata  The map to draw.
+--- @param src? Userdata  The map to draw.
 --- @param tile_x? number The tile x coordinate to start drawing from. tiles_x and tiles_y default to the entire map.
 --- @param tile_y? number The tile y coordinate to start drawing from. tiles_x and tiles_y default to the entire map.
 --- @param sx? number The screen x coordinate to start drawing to.
@@ -34,23 +34,23 @@
 function map(src, tile_x, tile_y, sx, sy, tiles_x, tiles_y, p8players, tile_w, tile_h) end
 
 --- PICO-8 style getters that operate on the current working map. 
---- These are equivalent to using the userdata methods :get and :set directly. 
---- So, if a userdata mymap is the current working map, mget(x,y) is squivalent to mymap:get(x,y).
+--- These are equivalent to using the Userdata methods :get and :set directly. 
+--- So, if a Userdata mymap is the current working map, mget(x,y) is squivalent to mymap:get(x,y).
 --- @param x number The x coordinate of the tile to get or set.
 --- @param y number The y coordinate of the tile to get or set.
---- @return number The value of the tile at the given coordinates.
+--- @return number @The value of the tile at the given coordinates.
 function mget(x, y) end
 
 --- PICO-8 style setters that operate on the current working map. 
---- These are equivalent to using the userdata methods :get and :set directly. 
---- So, if a userdata mymap is the current working map, mget(x,y) is squivalent to mymap:get(x,y).
+--- These are equivalent to using the Userdata methods :get and :set directly. 
+--- So, if a Userdata mymap is the current working map, mget(x,y) is squivalent to mymap:get(x,y).
 --- @param x number The x coordinate of the tile to get or set.
 --- @param y number The y coordinate of the tile to get or set.
 --- @param val number The value to set the tile to.
 function mset(x, y, val) end
 
 --- Draw a textured line from (x0,y0) to (x1,y1), sampling colour values from either a sprite or a map.
---- @param src? userdata[u8] | userdata[u16] | number number -- sprite index (coordinates in pixels), userdata (u8) -- sprite data, userdata (i16) -- map data (coordinates in tiles)
+--- @param src? Userdata | number number -- sprite index (coordinates in pixels), Userdata (u8) -- sprite data, Userdata (i16) -- map data (coordinates in tiles)
 --- @param x0 number The x coordinate of the start of the line.
 --- @param y0 number The y coordinate of the start of the line.
 --- @param x1 number The x coordinate of the end of the line.

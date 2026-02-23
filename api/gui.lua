@@ -136,8 +136,10 @@ function GuiElement:attach_text_editor(options) end
 --- @overload fun():void
 function GuiElement:detach(child) end
 
+--- draw_all() are normally called oncer per frame from _draw
 function GuiElement:draw_all() end
 
+--- update_all() are normally called oncer per frame from _draw
 function GuiElement:update_all() end
 
 --- put element on top
@@ -149,7 +151,8 @@ function GuiElement:bring_to_front() end
 function GuiElement:update() end
 
 --- gui_draw_all
-function GuiElement:draw() end
+--- @param event GuiEvent
+function GuiElement:draw(event) end
 
 --- mouse button is clicked
 --- @param event GuiEvent
@@ -179,7 +182,7 @@ function GuiElement:doubletap(event) end
 --- @param event GuiEvent
 function GuiElement:hover(event) end
 
---- msg.wheel_x msg.wheel_y
+--- mouse wheel scroll with: msg.wheel_x msg.wheel_y
 --- @param event GuiEvent
 function GuiElement:mousewheel(event) end
 

@@ -347,7 +347,7 @@ function vec(...) end
 
 --- @alias UserDataType "u8" | "i16" | "i32" | "i64" | "f64"
 
---- Create a userdata with a data type
+--- Create a Userdata with a data type
 --- @param data_type UserDataType  The first 4 are integers which are unsigned (u) or signed(i), and with a given number of bits. The last one is for 64-bit floats, and can be used to implement vectors and matrices.
 --- @param width number  
 --- @param height number
@@ -357,7 +357,7 @@ function vec(...) end
 --- @overload fun(data_type: UserDataType, width: number, height: number):Userdata
 function userdata(data_type, width, height, data) end
 
---- Copy a region of one userdata to another.
+--- Copy a region of one Userdata to another.
 --- @param src Userdata
 --- @param dest Userdata
 --- @param src_x number

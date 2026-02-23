@@ -181,8 +181,8 @@ function ovalfill(x0, y0, x1, y1, color) end
 ---
 --- end
 ---
---- @param x0? number x coordinate of the start point
---- @param y0? number y coordinate of the start point
+--- @param x0 number x coordinate of the start point
+--- @param y0 number y coordinate of the start point
 --- @param x1? number x coordinate of the end point
 --- @param y1? number y coordinate of the end point
 --- @param color? number colour index of the line-(0..63)

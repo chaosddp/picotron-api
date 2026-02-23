@@ -1,7 +1,7 @@
 ---@diagnostic disable: missing-return
 
 --[[
-A POD ("Picotron Object Data") is a string that encodes Lua values: tables, userdata, strings, numbers booleans, and nested tables containing those types.
+A POD ("Picotron Object Data") is a string that encodes Lua values: tables, Userdata, strings, numbers booleans, and nested tables containing those types.
 
 PODs form the basis of all data transfer and storage in Picotron. Every file is a single POD on disk, the contents of the clipboard is a POD, images embedded in documents are PODs, and messages sent between processes are PODs.
 ]]
