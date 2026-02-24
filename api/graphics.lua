@@ -122,24 +122,28 @@ function camera(x, y) end
 --- if r is negative, the circle is not drawn.
 ---
 --- When bit 0x800000000 in color is set, circfill draws inverted (everything outside the circle is drawn).
---- @param x number x coordinate of the circle
---- @param y number y coordinate of the circle
---- @param r number radius of the circle
+--- @param args? Userdata arguments like userdata("f64", 4, 3)
+--- @param x? number x coordinate of the circle
+--- @param y? number y coordinate of the circle
+--- @param r? number radius of the circle
 --- @param color? number colour index of the circle-(0..63)
+--- @overload fun(args):void
 --- @overload fun(x, y, r):void
-function circ(x, y, r, color) end
+function circ(args, x, y, r, color) end
 
 --- draw a filled circle at x,y with radius r
 ---
 --- if r is negative, the circle is not drawn.
 ---
 --- When bit 0x800000000 in color is set, circfill draws inverted (everything outside the circle is drawn).
---- @param x number x coordinate of the circle
---- @param y number y coordinate of the circle
---- @param r number radius of the circle
+--- @param args? Userdata arguments like userdata("f64", 4, 3)
+--- @param x? number x coordinate of the circle
+--- @param y? number y coordinate of the circle
+--- @param r? number radius of the circle
 --- @param color? number colour index of the circle-(0..63)
+--- @overload fun(args):void
 --- @overload fun(x, y, r):void
-function circfill(x, y, r, color) end
+function circfill(args, x, y, r, color) end
 
 --- draw an oval that is symmetrical in x and y (an ellipse), with the given bounding rectangle.
 --- @param x0 number x coordinate of the top left corner of the bounding rectangle
