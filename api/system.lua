@@ -78,19 +78,20 @@ function set_clipboard(text) end
 
 --- @enum SystemState
 local SysemState = {
-    ["memory"] = 0,
-    ["cpu"] = 1,
+    ["memory_usage"] = 0,
+    ["cpu_usage"] = 1,
     ["reserved"] = 2,
-    ["raw_memory"] = 3,
-    ["runtime"] = 4,
-    ["fps"] = 5,
+    ["raw_memory_usage"] = 3,
+    ["runtime_system_version"] = 4,
+    ["operating_fps"] = 5, -- (60,30,20,15)
     ["epoch_time"] = 86,
-    ["timezone_delta"] = 87,
+    ["timezone_delta"] = 87, -- in seconds
     ["web_player_cart_id"] = 101,
-    ["web_location"] = 150,
+    ["web_location_href"] = 150,
     ["web_location_pathname"] = 151,
     ["web_location_host"] = 152,
     ["web_location_hash"] = 153,
+    ["total_cpu_usage"] = 301,
 }
 
 --- Get system status

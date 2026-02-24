@@ -2,6 +2,8 @@
 
 
 --- @class Socket
+--- @field addr string the address of the socket
+--- @field port number the port number of the socket
 local Socket = {}
 
 --- Read a string from a socket. This function is not blocking; it will return nothing when there is no data available on the socket.

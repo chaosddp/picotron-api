@@ -31,6 +31,7 @@ function set_draw_target(ud) end
 --- @field observe_drag_offset? boolean -- indicates that when items are dropped, their .xo,.yo is used
 --- @field background_updates? boolean  -- allow _update() callbacks when parent window is not visible
 --- @field background_draws? boolean    -- allow _draw() callbacks when parent window is not visible
+--- @field fullscreen? boolean -- move window between fullscreen, desktop workspaces
 
 --- Create a window and/or set the window's attributes
 --- @param attribs? WindowAttribs attributes of the window

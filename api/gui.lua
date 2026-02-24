@@ -194,6 +194,11 @@ function GuiElement:drag_items(event) end
 --- @param event GuiEvent
 function GuiElement:drop_items(event) end
 
+--- @param event GuiEvent
+function GuiElement:drop_files(event) end
+
+--- @param event GuiEvent
+function GuiElement:drag_files(event) end
 
 --- Create a root gui element. The root element is the same as any other gui element, with the addition of two special methods: draw_all() and update_all(), that are normally called oncer per frame from _draw and _update
 --- @param attribs? any

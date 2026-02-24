@@ -84,3 +84,13 @@ function create_delta(str0, str1) end
 --- @param delta string The delta string.
 --- @return string @The resulting string.
 function apply_delta(str0, delta) end
+
+--- Returns the basename of a path.
+--- @param str string The path to get the basename of.
+--- @return string @The basename of the path.
+function string.basename(str) end
+
+--- Returns the directory name of a path.
+--- @param str string The path to get the directory name of.
+--- @return string @The directory name of the path.
+function string.dirname(str) end
