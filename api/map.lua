@@ -22,15 +22,15 @@
 --- @param tile_w? number The width of each tile. tile_w and tile_h specify the integer width and height in pixels that each tile should be drawn. Bitmaps that do not match those dimensions are stretched to fit. The default values for tile_w and tile_h are 0x550e, 0x550f (0 means 256), which are in turn initialised to the dimensions of sprite 0 on run.
 --- @param tile_h? number The height of each tile.
 --- @overload fun():void
---- @overload fun(tile_x, tile_y):void
---- @overload fun(tile_x, tile_y, sx, sy):void
---- @overload fun(tile_x, tile_y, sx, sy, tiles_x, tiles_y):void
---- @overload fun(tile_x, tile_y, sx, sy, tiles_x, tiles_y, p8players):void
---- @overload fun(tile_x, tile_y, sx, sy, tiles_x, tiles_y, p8players, tile_w, tile_h):void
---- @overload fun(src, tile_x, tile_y):void
---- @overload fun(src, tile_x, tile_y, sx, sy):void
---- @overload fun(src, tile_x, tile_y, sx, sy, tiles_x, tiles_y):void
---- @overload fun(src, tile_x, tile_y, sx, sy, tiles_x, tiles_y, p8players):void
+--- @overload fun(tile_x:number, tile_y:number):void
+--- @overload fun(tile_x:number, tile_y:number, sx:number, sy:number):void
+--- @overload fun(tile_x:number, tile_y:number, sx:number, sy:number, tiles_x:number, tiles_y:number):void
+--- @overload fun(tile_x:number, tile_y:number, sx:number, sy:number, tiles_x:number, tiles_y:number, p8players:number):void
+--- @overload fun(tile_x:number, tile_y:number, sx:number, sy:number, tiles_x:number, tiles_y:number, p8players:number, tile_w:number, tile_h:number):void
+--- @overload fun(src:Userdata, tile_x:number, tile_y:number):void
+--- @overload fun(src:Userdata, tile_x:number, tile_y:number, sx:number, sy:number):void
+--- @overload fun(src:Userdata, tile_x:number, tile_y:number, sx:number, sy:number, tiles_x:number, tiles_y:number):void
+--- @overload fun(src:Userdata, tile_x:number, tile_y:number, sx:number, sy:number, tiles_x:number, tiles_y:number, p8players:number):void
 function map(src, tile_x, tile_y, sx, sy, tiles_x, tiles_y, p8players, tile_w, tile_h) end
 
 --- PICO-8 style getters that operate on the current working map. 
@@ -62,7 +62,7 @@ function mset(x, y, val) end
 --- @param w0 number The w coordinate of the start of the line. w0, w1 are used to control perspective and mean 1/z0 and 1/z1. Default values are 1,1 (gives a linear interpolation between uv0 and uv1).
 --- @param w1 number The w coordinate of the end of the line. w0, w1 are used to control perspective and mean 1/z0 and 1/z1. Default values are 1,1 (gives a linear interpolation between uv0 and uv1).
 --- @param flags? number The flags to use when drawing the line. Experimental flags useful for polygon rendering / rotated sprites: 0x100 to skip drawing the last pixel, 0x200 to perform sub-pixel texture coordinate adjustment.
---- @overload fun(src, x0, y0, x1, y1, u0, v0, u1, v1, w0, w1)
---- @overload fun(x0, y0, x1, y1, u0, v0, u1, v1, w0, w1, flags)
---- @overload fun(x0, y0, x1, y1, u0, v0, u1, v1, w0, w1)
+--- @overload fun(src:Userdata, x0:number, y0:number, x1:number, y1:number, u0:number, v0:number, u1:number, v1:number, w0:number, w1:number):void
+--- @overload fun(x0:number, y0:number, x1:number, y1:number, u0:number, v0:number, u1:number, v1:number, w0:number, w1:number, flags:number):void
+--- @overload fun(x0:number, y0:number, x1:number, y1:number, u0:number, v0:number, u1:number, v1:number, w0:number, w1:number):void
 function tline3d(src, x0, y0, x1, y1, u0, v0, u1, v1, w0, w1, flags) end

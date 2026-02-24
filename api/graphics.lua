@@ -7,7 +7,7 @@
 --- @param h number height of the clipping rectangle
 --- @param clip_previous ?boolean when clip_previous is true, clip the new clipping region by the old one.
 --- @overload fun():void
---- @overload fun(x, y, w, h):void
+--- @overload fun(x:number, y:number, w:number, h:number):void
 function clip(x, y, w, h, clip_previous) end
 
 --- Sets the pixel at x, y to colour index col (0..63). 
@@ -26,7 +26,7 @@ function clip(x, y, w, h, clip_previous) end
 --- @param x number x coordinate of the pixel
 --- @param y number y coordinate of the pixel
 --- @param color? number colour index of the pixel-(0..63)
---- @overload fun(x, y):void
+--- @overload fun(x:number, y:number):void
 function pset(x, y, color) end
 
 --- Returns the colour of a pixel on the screen at (x, y).
@@ -58,14 +58,14 @@ function pget(x, y) end
 --- @param n number sprite index
 --- @param f? number flag index 0..7
 --- @return boolean @flag value
---- @overload fun(n):boolean
+--- @overload fun(n:number):boolean
 function fget(n, f) end
 
 --- Set the value (val) of sprite n's flag f.
 --- @param n number sprite index
 --- @param f? number flag index 0..7
 --- @param val boolean flag value
---- @overload fun(n, val):void
+--- @overload fun(n:number, val:boolean):void
 function fset(n, f, val) end
 
 --- Print a string str and optionally set the draw colour to col.
@@ -87,10 +87,10 @@ function fset(n, f, val) end
 --- @param y? number y coordinate of the string
 --- @param color? number colour index of the string-(0..63)
 --- @return number @right-most x position relative to the camera position.
---- @overload fun(str):number
---- @overload fun(str, color):number
---- @overload fun(str, x, y):number
---- @overload fun(str, x, y, color):number
+--- @overload fun(str:string):number
+--- @overload fun(str:string, color:number):number
+--- @overload fun(str:string, x:number, y:number):number
+--- @overload fun(str:string, x:number, y:number, color:number):number
 function print(str, x, y, color) end
 
 --- set the cursor position.
@@ -98,7 +98,7 @@ function print(str, x, y, color) end
 --- @param x number x coordinate of the cursor
 --- @param y number y coordinate of the cursor
 --- @param color? number colour index of the cursor-(0..63)
---- @overload fun(x, y):void
+--- @overload fun(x:number, y:number):void
 function cursor(x, y, color) end
 
 --- set the current colour to be used by shape drawing functions (pset, circ, rect..), when one is not given as the last argument.
@@ -122,28 +122,27 @@ function camera(x, y) end
 --- if r is negative, the circle is not drawn.
 ---
 --- When bit 0x800000000 in color is set, circfill draws inverted (everything outside the circle is drawn).
---- @param args? Userdata arguments like userdata("f64", 4, 3)
---- @param x? number x coordinate of the circle
+--- @param x? number | Userdata x coordinate of the circle
 --- @param y? number y coordinate of the circle
 --- @param r? number radius of the circle
 --- @param color? number colour index of the circle-(0..63)
---- @overload fun(args):void
---- @overload fun(x, y, r):void
-function circ(args, x, y, r, color) end
+--- @overload fun(x:Userdata):void
+--- @overload fun(x:number, y:number, r:number, color:number):void
+--- @overload fun(x:number, y:number, r:number):void
+function circ(x, y, r, color) end
 
 --- draw a filled circle at x,y with radius r
 ---
 --- if r is negative, the circle is not drawn.
 ---
 --- When bit 0x800000000 in color is set, circfill draws inverted (everything outside the circle is drawn).
---- @param args? Userdata arguments like userdata("f64", 4, 3)
---- @param x? number x coordinate of the circle
+--- @param x? number | Userdata x coordinate of the circle
 --- @param y? number y coordinate of the circle
 --- @param r? number radius of the circle
 --- @param color? number colour index of the circle-(0..63)
---- @overload fun(args):void
---- @overload fun(x, y, r):void
-function circfill(args, x, y, r, color) end
+--- @overload fun(x:Userdata):void
+--- @overload fun(x:number, y:number, r:number):void
+function circfill(x, y, r, color) end
 
 --- draw an oval that is symmetrical in x and y (an ellipse), with the given bounding rectangle.
 --- @param x0 number x coordinate of the top left corner of the bounding rectangle
@@ -151,7 +150,7 @@ function circfill(args, x, y, r, color) end
 --- @param x1 number x coordinate of the bottom right corner of the bounding rectangle
 --- @param y1 number y coordinate of the bottom right corner of the bounding rectangle
 --- @param color? number colour index of the oval-(0..63)
---- @overload fun(x0, y0, x1, y1):void
+--- @overload fun(x0:number, y0:number, x1:number, y1:number):void
 function oval(x0, y0, x1, y1, color) end
 
 --- draw an oval that is symmetrical in x and y (an ellipse), with the given bounding rectangle.
@@ -162,7 +161,7 @@ function oval(x0, y0, x1, y1, color) end
 --- @param x1 number x coordinate of the bottom right corner of the bounding rectangle
 --- @param y1 number y coordinate of the bottom right corner of the bounding rectangle
 --- @param color? number colour index of the oval-(0..63)
---- @overload fun(x0, y0, x1, y1):void
+--- @overload fun(x0:number, y0:number, x1:number, y1:number):void
 function ovalfill(x0, y0, x1, y1, color) end
 
 --- draw a line from (x0, y0) to (x1, y1)
@@ -190,8 +189,8 @@ function ovalfill(x0, y0, x1, y1, color) end
 --- @param x1? number x coordinate of the end point
 --- @param y1? number y coordinate of the end point
 --- @param color? number colour index of the line-(0..63)
---- @overload fun(x0, y0, x1, y1):void
---- @overload fun(x0, y0):void
+--- @overload fun(x0:number, y0:number, x1:number, y1:number):void
+--- @overload fun(x0:number, y0:number):void
 function line(x0, y0, x1, y1, color) end
 
 --- draw a rectangle rectangle with corners at (x0, y0), (x1, y1).
@@ -224,7 +223,7 @@ function rectfill(x0, y0, x1, y1, color) end
 --- @param height number height of the rectangle
 --- @param radius number radius of the corners
 --- @param color? number colour index of the rectangle-(0..63)
---- @overload fun(x, y, width, height, color):void
+--- @overload fun(x:number, y:number, width:number, height:number, radius:number):void
 function rrect(x, y, width, height, radius, color) end
 
 --- draw a filled rectangle with rounded corners.
@@ -244,7 +243,7 @@ function rrect(x, y, width, height, radius, color) end
 --- @param height number height of the rectangle
 --- @param radius number radius of the corners
 --- @param color? number colour index of the rectangle-(0..63)
---- @overload fun(x, y, width, height, color):void
+--- @overload fun(x:number, y:number, width:number, height:number, radius:number):void
 function rrectfill(x, y, width, height, radius, color) end
 
 --- swaps colour c0 for c1 for one of three palette re-mappings
@@ -275,8 +274,8 @@ function rrectfill(x, y, width, height, radius, color) end
 --- pal(1, 0xff0080, 2)
 ---
 --- @overload fun():void
---- @overload fun(c0):void
---- @overload fun(c0, c1):void
+--- @overload fun(c0:number):void
+--- @overload fun(c0:number, c1:number):void
 function pal(c0, c1, p) end
 
 --- Set transparency for colour index c to is_transparent (boolean) transparency is observed by spr(), sspr(), map() and tline3d()
@@ -290,7 +289,7 @@ function pal(c0, c1, p) end
 --- @param c? number colour index to set transparency for
 --- @param is_transparent? boolean transparency state
 --- @overload fun():void
---- @overload fun(c):void
+--- @overload fun(c:number):void
 function palt(c, is_transparent) end
 
 --- Draw sprite s at position x,y.
@@ -303,8 +302,8 @@ function palt(c, is_transparent) end
 --- @param y number y coordinate of the sprite
 --- @param flip_x? boolean flip sprite horizontally
 --- @param flip_y? boolean flip sprite vertically
---- @overload fun(s, x, y):void
---- @overload fun(s, x, y, flip_x):void
+--- @overload fun(s:number, x:number, y:number):void
+--- @overload fun(s:number, x:number, y:number, flip_x:boolean):void
 function spr(s, x, y, flip_x, flip_y) end
 
 --- Stretch a source rectangle of sprite s (sx, sy, sw, sh) to a destination rectangle on the screen (dx, dy, dw, dh). 
@@ -320,9 +319,9 @@ function spr(s, x, y, flip_x, flip_y) end
 --- @param dh? number destination height, dh defaults to sh.
 --- @param flip_x? boolean flip sprite horizontally
 --- @param flip_y? boolean flip sprite vertically
---- @overload fun(s, sx, sy, sw, sh, dx, dy):void
---- @overload fun(s, sx, sy, sw, sh, dx, dy, dw, dh):void
---- @overload fun(s, sx, sy, sw, sh, dx, dy, dw, dh, flip_x):void
+--- @overload fun(s:number, sx:number, sy:number, sw:number, sh:number, dx:number, dy:number):void
+--- @overload fun(s:number, sx:number, sy:number, sw:number, sh:number, dx:number, dy:number, dw:number, dh:number):void
+--- @overload fun(s:number, sx:number, sy:number, sw:number, sh:number, dx:number, dy:number, dw:number, dh:number, flip_x:boolean):void
 function sspr(s, sx, sy, sw, sh, dx, dy, dw, dh, flip_x, flip_y) end
 
 --- Get the sprite for a given index (0..8191).

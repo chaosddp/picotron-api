@@ -29,7 +29,7 @@ function exit() end
 --- if condition is false, stop the program and print message if it is given. this can be useful for debugging cartridges, by assert()'ing that things that you expect to be true are indeed true.
 --- @param condition boolean condition to check
 --- @param message? string message to print
---- @overload fun(condition)
+--- @overload fun(condition:boolean)
 function assert(condition, message) end
 
 --- Returns the number of seconds elapsed since the cartridge was run.
