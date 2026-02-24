@@ -170,7 +170,29 @@ function chooser(options, handler) end
 --- @param reply? boolean When reply is true, send_message blocks until the process responds with a reply. For example, paste the following in to terminal to set up a headless process that responds to "get_id" messages
 function send_message(proc_id, msg, reply) end
 
+--- @alias EventNames
+--- | "click"
+--- | "grab"
+--- | "toggle_app_menu"
+--- | "capture_video"
+--- | "capture_screenshot"
+--- | "search"
+--- | "drop_items"
+--- | "drag_items"
+--- | "lost_visibility"
+--- | "gained_visibility"
+--- | "lost_focus"
+--- | "gained_focus"
+--- | "resize"
+--- | "squash"
+--- | "move"
+--- | "open_file"
+--- | "save_file"
+--- | "save_file_as"
+--- | "jump_to_spot"
+
+
 --- Create an event handler for the current process
---- @param event string event is a string that matches the event field of the message
+--- @param event EventNames event is a string that matches the event field of the message
 --- @param func fun(msg:table):void  a function that handles the message
 function on_event(event, func) end

@@ -29,7 +29,7 @@ function Userdata:get(x , y, n) end
 --- @param y? number starting y index
 --- @param val0 number
 --- @param val1? number
---- @param ...? number[]
+--- @param ... number
 function Userdata:set(x, y, val0, val1, ...) end
 
 --- Return a row of a 2d userdata (0 is the first row or column), or nil when out of range.
@@ -339,7 +339,7 @@ function Userdata:poke(addr, offset, elements) end
 -- function Userdata:op(src, dest, src_offset, dest_offset, len, src_stride, dest_stride, spans) end
 
 --- A convenience function for constructing 1d vectors of f64s.
---- @param ... number[]
+--- @param ... number
 --- @return Userdata
 function vec(...) end
 

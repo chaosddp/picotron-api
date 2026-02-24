@@ -44,7 +44,7 @@ function pset(x, y, color) end
 ---
 --- @param x number x coordinate of the pixel
 --- @param y number y coordinate of the pixel
---- @return number color index of the pixel-(0..63)
+--- @return number @color index of the pixel-(0..63)
 function pget(x, y) end
 
 --- Get the value (val) of sprite n's flag f.
@@ -57,7 +57,7 @@ function pget(x, y) end
 ---
 --- @param n number sprite index
 --- @param f? number flag index 0..7
---- @return boolean flag value
+--- @return boolean @flag value
 --- @overload fun(n):boolean
 function fget(n, f) end
 
@@ -86,7 +86,7 @@ function fset(n, f, val) end
 --- @param x? number x coordinate of the string
 --- @param y? number y coordinate of the string
 --- @param color? number colour index of the string-(0..63)
---- @return number right-most x position relative to the camera position.
+--- @return number @right-most x position relative to the camera position.
 --- @overload fun(str):number
 --- @overload fun(str, color):number
 --- @overload fun(str, x, y):number
@@ -331,6 +331,7 @@ function get_spr(index) end
 --- @param ud userdata @a 2d userdata object of type "u8"
 function set_spr(index, ud) end
 
+--- @param ... number
 --- Set a 4x4 fill pattern using PICO-8 style fill patterns. p is a bitfield in reading order starting from the highest bit.
 ---
 --- Observed by circ() circfill() rect() rectfill() oval() ovalfill() pset() line()

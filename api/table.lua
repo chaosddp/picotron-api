@@ -21,7 +21,7 @@ function deli(tbl, index) end
 --- Returns the length of table t (same as #tbl) When val is given, returns the number of instances of VAL in that table.
 --- @param tbl table The table to count.
 --- @param val? any The value to count.
---- @return number The length of the table
+--- @return number @The length of the table
 function count(tbl, val) end
 
 --- Used in for loops to iterate over all items in a table (that have a 1-based integer index), in the order they were added.
