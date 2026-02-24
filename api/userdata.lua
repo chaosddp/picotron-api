@@ -14,8 +14,6 @@ function Userdata:height() end
 
 --- @return number @width of userdata
 --- @return number @height of userdata
---- @return UserDataType @data type of userdata
---- @return any @dimensionality of a userdata
 function Userdata:attribs() end
 
 --- get n values starting at x (or x, y for 2d userdata), or 0 if out of range.
